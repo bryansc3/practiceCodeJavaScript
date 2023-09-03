@@ -17,7 +17,7 @@ function convertToRoman(num) {
                                  m==4||m==5?
                                    listNum[m*a]:
                                  m<9?
-                                   listNum[5*a]+listNum[a].repeat((m-5)):
+                                   listNum[5*a]+listNum[a].repeat(m-5):
                                  listNum[9*a]
                               :listNum[a].repeat(m);
                       });
