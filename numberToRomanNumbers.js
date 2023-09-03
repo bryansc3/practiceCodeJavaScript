@@ -11,15 +11,15 @@ function convertToRoman(num) {
   
   const romanNumber=arr.map((m,ind)=>
                       {let a=Math.pow(10,3-ind); 
-                          return ind!=0?
-                                    m<4?
-                                      listNum[a].repeat(m):
-                                    m==4||m==5?
-                                      listNum[m*a]:
-                                    m<9?
-                                      listNum[5*a]+listNum[a].repeat((m-5)):
-                                    listNum[9*a]
-                                 :listNum[a].repeat(m)
+                       return ind!=0?
+                                 m<4?
+                                   listNum[a].repeat(m):
+                                 m==4||m==5?
+                                   listNum[m*a]:
+                                 m<9?
+                                   listNum[5*a]+listNum[a].repeat((m-5)):
+                                 listNum[9*a]
+                              :listNum[a].repeat(m);
                       });
   return romanNumber.join("");
 }
