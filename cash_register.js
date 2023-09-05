@@ -9,21 +9,19 @@ function checkCashRegister(price, cash, cid) {
   
   for(let i=cant.length-1; i<cant.length;i--){
     let unit=cant[i];
-    while(minus>0){
-      let cont=0;
-      while(minus<unit[1] && unit[1]>0){
-        minus-=unit[1];
-        unit[1]-=1;
-        cont+=1;
-        if(minus==0)
-        minus+=unit[1];
-      }
-      pushValues.push([unit[0],cont*units[unit[0]]]);
+    let cont=0;
+    while(minus>units[unit[0]] && unit[1]>0){
+      minus-=units[unit[0]];
+      unit[1]-=1;
+      cont+=1;
     }
+    if(cont>0)
+    pushValues.push([unit[0],cont*units[unit[0]]]);
   }
-  if(minus<0){
+  if(minus>0){
     changes["status"]="INSUFFICIENT_FUNDS";
   }
+  let as=cant[1]
   return changes;
 }
 
